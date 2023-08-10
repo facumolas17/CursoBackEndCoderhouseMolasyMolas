@@ -10,11 +10,13 @@ class ProductManager{
 
         let newCode = this.products.find((prod) => prod.code === code); //primera validación por código
         if(newCode){
-            return console.log(`Ya existe un producto con el código ${code}`);
+            console.log(`Ya existe un producto con el código ${code}`);
+            return;
         }
 
         if(!title || !description || !price || !thumbnail || !code ||!stock ){//segunda validación por si hay algún dato mal ingresado
-            return console.error("Alguno de sus datos es incorrecto");
+            console.error("Alguno de sus datos es incorrecto");
+           
         }
         else{
 
@@ -49,21 +51,21 @@ class ProductManager{
 
         if(!productFind){
             console.error(`No se encontró ningún producto con el id ${id}`);
-           
-        }else{
+            return;
+        }
 
             return productFind;
         
-        }
+        
         
     }
 }
 
 let pm=new ProductManager();
 
-pm.addProduct("queso1","jdakks  sfkgdm dk", 2300, "http://jkjnskdc.ad", "QH4562", 200);
+pm.addProduct("queso1","jdakks  sfkgdm dk", 2300, "http://jkjnskdc.ad", "QH4562",200);
 pm.addProduct("fiambre2","jdakks gdh  sfkgdm dk", 2700, "http://jkjnskdfsc.ad", "FF4562", 150);
-pm.addProduct("fiambre3","jdakks gdh  sfkgdm dk", 2700, "http://jkjnskdfsc.ad", "FF452", 150);
+pm.addProduct("fiambre3","jdakks gdh  sfkgdm dk", 2700, "http://jkjnskdfsc.ad", "FF456", 150);
 
 console.log(pm.getProducts());
 console.log("----------------");
